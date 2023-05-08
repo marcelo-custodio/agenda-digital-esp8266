@@ -15,6 +15,7 @@
 #include "esp_spi_flash.h"
 #include "serial.h"
 #include "memoria.h"
+#include "agenda.h"
 #include <inttypes.h> 
 
 
@@ -54,6 +55,9 @@ void app_main()
   {
   	case '1':
   		printf("Opcao 0 selecionada\n");
+
+      lista_todos_os_registros();
+
   		break;
   	case '2':
   		printf("Opcao 1 selecionada\n");

@@ -36,12 +36,12 @@ void Memoria::escreve (uint16_t end, uint8_t b[], uint16_t tam)
 	uint16_t endAtual = end; 
 	for (int a=0;a< tam;a++)
 	{
-		 testa_eeprom_disponivel();
-		 meuI2c.start();
-    		meuI2c.write ( (dev << 1) | 0);
-    		meuI2c.write (endAtual>>8);
-    		meuI2c.write (endAtual);
-    		meuI2c.write (b[a]);
+		testa_eeprom_disponivel();
+		meuI2c.start();
+    	meuI2c.write ( (dev << 1) | 0);
+    	meuI2c.write (endAtual>>8);
+    	meuI2c.write (endAtual);
+    	meuI2c.write (b[a]);
   		meuI2c.stop();
   		endAtual++;
 	}
@@ -56,14 +56,14 @@ void Memoria::le (uint16_t end, uint8_t b[], uint16_t tam)
 	for (int a=0;a< tam;a++)
 	{
 		 
-		 meuI2c.start();
-    		meuI2c.write ( (dev << 1) | 0);
-    		meuI2c.write (endAtual>>8);
-    		meuI2c.write (endAtual);
-    	 meuI2c.start();
-    	 meuI2c.write ((dev << 1)|1);
-    	 b[a] = meuI2c.read();
-         meuI2c.stop();
+		meuI2c.start();
+    	meuI2c.write ( (dev << 1) | 0);
+    	meuI2c.write (endAtual>>8);
+    	meuI2c.write (endAtual);
+    	meuI2c.start();
+    	meuI2c.write ((dev << 1)|1);
+    	b[a] = meuI2c.read();
+        meuI2c.stop();
   		endAtual++;
 	}
 

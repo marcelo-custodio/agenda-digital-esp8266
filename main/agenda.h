@@ -2,6 +2,7 @@
 #define __AGENDA__
 
 #include <stdint.h>
+#include <string.h>
 
 typedef struct {
     char nome[20];
