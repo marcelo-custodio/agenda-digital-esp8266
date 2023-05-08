@@ -68,3 +68,5 @@ void Memoria::le (uint16_t end, uint8_t b[], uint16_t tam)
 	}
 
 }
+
+Memoria memoria = Memoria();

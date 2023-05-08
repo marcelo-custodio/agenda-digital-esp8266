@@ -25,7 +25,7 @@ int v=0;
 void app_main()
 {
 
-  char leitura[100];
+  /*char leitura[100];
 
   serial.begin(9600);
   printf("Entre com o nome: ");
@@ -39,24 +39,39 @@ void app_main()
   
   printf("Entre com o telefone: ");
   serial.readString((uint8_t *)leitura,10);
-  printf("%s\n",leitura);
+  printf("%s\n",leitura);*/
   
-  printf("Entre com opcao\n");
-  printf("[0] - faz algo\n");
-  printf("[1] - faz outro\n");
+  printf("MENU\n");
+  printf("[1] - Lista todos os registros\n");
+  printf("[2] - pesquisa registro por nome\n");
+  printf("[3] - pesquisa registro por telefone\n");
+  printf("[4] - remove registro baseado no telefone\n");
+  printf("[5] - mostra a quantidade de registros atualmente armazenados\n");
+  printf("[6] - Inicializa o banco de dados (todas as informacões armazenadas serão perdidas)\n");
   char opcao = serial.readChar();
+
   switch (opcao)
   {
-  	case '0':
+  	case '1':
   		printf("Opcao 0 selecionada\n");
   		break;
-  	case '1':
+  	case '2':
   		printf("Opcao 1 selecionada\n");
   		break;
+    case '3':
+      printf("Opcao 2 selecionada\n");
+      break;
+    case '4':
+      printf("Opcao 3 selecionada\n");
+      break;
+    case '5':
+      printf("Opcao 4 selecionada\n");
+      break;
+    case '6':
+      printf("Opcao 5 selecionada\n");
+      break;
+    default:
+      printf("Opcao invalida\n");
+      break;
   }
-  
-
-  
-
-
 }
