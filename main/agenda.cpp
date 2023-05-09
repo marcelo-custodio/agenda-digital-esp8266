@@ -2,7 +2,7 @@
 #include "memoria.h"
 
 void inicializa_agenda(void) {
-    memoria.escreve(0, {0}, 1);
+    memoria.escreve(0, {0 0}, sizeof(uint16_t));
     return;
 }
 void le_registro (uint16_t numero_do_registro, tipo_registro &R) {
@@ -13,10 +13,10 @@ void salva_registro(uint16_t numero_do_registro, tipo_registro R) {
 }
 
 void lista_todos_os_registros() {
-    uint8_t num;
+    uint16_t num;
     tipo_registro* buffer;
 
-    Memoria.le(0, num, sizeof(char));   //Acho que dá pra passar o valor para o num por referência ao chamar a função Memoria.le()
+    Memoria.le(0, &num, sizeof(uint16_t));   //Acho que dá pra passar o valor para o num por referência ao chamar a função Memoria.le()
 
     //printf("%d", (int*)num);  //Testa valor lido no índice da agenda
 
