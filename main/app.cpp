@@ -56,7 +56,7 @@ void app_main()
   switch (opcao)
   {
   	case '1':
-  		printf("Opcao 0 selecionada\n");
+  		printf("Listando todos os registros:\n");
 
       lista_todos_os_registros();
 
@@ -69,10 +69,16 @@ void app_main()
 
   		break;
     case '3':
-      printf("Opcao 2 selecionada\n");
+      printf("Digite o telefone a ser pesquisado: \n");
+      scanf("%s", pesquisa_telefone);
+
+      pesquisa_registro_telefone(pesquisa_telefone);
       break;
     case '4':
-      printf("Opcao 3 selecionada\n");
+      printf("Digite o telefone do registro a ser removido: \n");
+      scanf("%s", pesquisa_telefone);
+
+      
       break;
     case '5':
       printf("Opcao 4 selecionada\n");
