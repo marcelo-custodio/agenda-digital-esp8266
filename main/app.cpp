@@ -41,13 +41,15 @@ void app_main()
   printf("Entre com o telefone: ");
   serial.readString((uint8_t *)leitura,10);
   printf("%s\n",leitura);*/
+
+  serial.begin(9600);
   
   printf("MENU\n");
   printf("[1] - Lista todos os registros\n");
-  printf("[2] - pesquisa registro por nome\n");
-  printf("[3] - pesquisa registro por telefone\n");
-  printf("[4] - remove registro baseado no telefone\n");
-  printf("[5] - mostra a quantidade de registros atualmente armazenados\n");
+  printf("[2] - Pesquisa registro por nome\n");
+  printf("[3] - Pesquisa registro por telefone\n");
+  printf("[4] - Remove registro baseado no telefone\n");
+  printf("[5] - Mostra a quantidade de registros atualmente armazenados\n");
   printf("[6] - Inicializa o banco de dados (todas as informacões armazenadas serão perdidas)\n");
   char opcao = serial.readChar();
 
@@ -60,7 +62,11 @@ void app_main()
 
   		break;
   	case '2':
-  		printf("Opcao 1 selecionada\n");
+  		printf("Digite o nome a ser pesquisado: \n");
+      scanf("%s", pesquisa_nome);
+
+      pesquisa_registro_nome(pesquisa_nome);
+
   		break;
     case '3':
       printf("Opcao 2 selecionada\n");
