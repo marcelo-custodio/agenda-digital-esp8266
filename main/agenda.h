@@ -10,9 +10,12 @@ typedef struct {
     char endereco[30];
 }tipo_registro;
 
-uint8_t* buffer;
+uint8_t* buffer_memoria;
+tipo_registro buffer;
 char pesquisa_nome[20];
 char pesquisa_telefone[14];
+
+void convert_buffer();
 
 void inicializa_agenda(void);
 void le_registro (uint16_t numero_do_registro, tipo_registro &R);
