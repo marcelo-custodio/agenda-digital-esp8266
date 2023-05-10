@@ -4,13 +4,13 @@
 void convert_buffer(){  //Converte o vetor uint8_t* buffer_memoria que é lido da memória para um buffer do tipo do registro para que a manipulação seja mais fácil 
     uint8_t i;
     for(i = 0; i < 20; i++){    //Os primeiros 20 char são correspondentes ao nome
-        buffer->nome[i]= buffer_memoria[i];
+        buffer.nome[i]= buffer_memoria[i];
     }
     for(i = 20; i < 34; i++){   //Os próximos 14 char são correspondentes ao telefone
-        buffer->telefone[i]= buffer_memoria[i];
+        buffer.telefone[i]= buffer_memoria[i];
     }
     for(i = 34; i < 64; i++){   //Os próximos 30 char são correspondentes ao endereço
-        buffer->endereco[i]= buffer_memoria[i];
+        buffer.endereco[i]= buffer_memoria[i];
     }
 
     return;
@@ -43,9 +43,9 @@ void pesquisa_registro_nome(char nome_registro[20]){
 
             if(buffer->nome == nome_registro){  //Verifica se o nome fornecido é igual a algum nome registrado
                 printf("Registro %d \n", i+1);
-                printf("Nome: %s \n", buffer->nome);
-                printf("Telefone: %s \n", buffer->telefone);
-                printf("Endereco: %s \n", buffer->endereco);
+                printf("Nome: %s \n", buffer.nome);
+                printf("Telefone: %s \n", buffer.telefone);
+                printf("Endereco: %s \n", buffer.endereco);
 
                 return;
             }
@@ -72,9 +72,9 @@ void pesquisa_registro_telefone(char telefone_registro[20]){
 
             if(buffer->telefone == telefone_registro){  //Verifica se o nome fornecido é igual a algum telefone registrado
                 printf("Registro %d \n", i);
-                printf("Nome: %s \n", buffer->nome);
-                printf("Telefone: %s \n", buffer->telefone);
-                printf("Endereco: %s \n", buffer->endereco);
+                printf("Nome: %s \n", buffer.nome);
+                printf("Telefone: %s \n", buffer.telefone);
+                printf("Endereco: %s \n", buffer.endereco);
 
                 return;
             }
@@ -135,9 +135,9 @@ void lista_todos_os_registros() {
             convert_buffer();
 
             printf("Registro %d \n", i);
-            printf("Nome: %s \n", buffer->nome);
-            printf("Telefone: %s \n", buffer->telefone);
-            printf("Endereco: %s \n", buffer->endereco);
+            printf("Nome: %s \n", buffer.nome);
+            printf("Telefone: %s \n", buffer.telefone);
+            printf("Endereco: %s \n", buffer.endereco);
         }
 
     }
