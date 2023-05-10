@@ -12,6 +12,7 @@ typedef struct {
 
 uint8_t* buffer_memoria;
 tipo_registro buffer;
+uint16_t index;
 char pesquisa_nome[20];
 char pesquisa_telefone[14];
 
