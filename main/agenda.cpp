@@ -42,7 +42,7 @@ void pesquisa_registro_nome(char nome_registro[20]){
             convert_buffer();
 
             if(buffer->nome == nome_registro){  //Verifica se o nome fornecido é igual a algum nome registrado
-                printf("Registro %d \n", i+1)
+                printf("Registro %d \n", i+1);
                 printf("Nome: %s \n", buffer->nome);
                 printf("Telefone: %s \n", buffer->telefone);
                 printf("Endereco: %s \n", buffer->endereco);
