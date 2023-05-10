@@ -4,20 +4,20 @@
 void convert_buffer(){  //Converte o vetor uint8_t* buffer_memoria que é lido da memória para um buffer do tipo do registro para que a manipulação seja mais fácil 
     uint8_t i;
     for(i = 0; i < 20; i++){    //Os primeiros 20 char são correspondentes ao nome
-        buffer.nome[i]= buffer_memoria[i]
+        buffer->nome[i]= buffer_memoria[i];
     }
     for(i = 20; i < 34; i++){   //Os próximos 14 char são correspondentes ao telefone
-        buffer.telefone[i]= buffer_memoria[i]
+        buffer->telefone[i]= buffer_memoria[i];
     }
     for(i = 34; i < 64; i++){   //Os próximos 30 char são correspondentes ao endereço
-        buffer.endereco[i]= buffer_memoria[i]
+        buffer->endereco[i]= buffer_memoria[i];
     }
 
     return;
 }
 
 void inicializa_agenda(void) {
-    memoria.escreve(0, {0 0}, sizeof(uint16_t));   //Zera quantidade de registros no índice da memória
+    Memoria.escreve(0, {0 0}, sizeof(uint16_t));   //Zera quantidade de registros no índice da memória
     return;
 }
 void le_registro (uint16_t numero_do_registro, tipo_registro &R) {
@@ -71,7 +71,7 @@ void pesquisa_registro_telefone(char telefone_registro[20]){
             convert_buffer();
 
             if(buffer->telefone == telefone_registro){  //Verifica se o nome fornecido é igual a algum telefone registrado
-                printf("Registro %d \n", i)
+                printf("Registro %d \n", i);
                 printf("Nome: %s \n", buffer->nome);
                 printf("Telefone: %s \n", buffer->telefone);
                 printf("Endereco: %s \n", buffer->endereco);
@@ -108,7 +108,7 @@ void remove_registro(char& telefone_registro){
                 Memoria.escreve(2+pos, buffer_memoria, sizeof(tipo_registro));  //Escreve o último registro da agenda sobre o registro removido
 
                 (uint16_t*)num-=1;
-                memoria.escreve(0, &num, sizeof(uint16_t)); //Atualiza a o índice da agenda
+                Memoria.escreve(0, &num, sizeof(uint16_t)); //Atualiza a o índice da agenda
 
                 return;
             }
